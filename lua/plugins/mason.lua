@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- Customize Mason plugins
 
@@ -12,6 +12,10 @@ return {
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "lua_ls",
+        "cssls",
+        "pyright",
+        "marksman",
+        "sqlls",
         -- add more arguments for adding more language servers
       })
     end,
@@ -25,6 +29,13 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "prettier",
         "stylua",
+        "flake8",
+        "pyproject-flake8",
+        "djlint",
+        "isort",
+        "pydocstyle",
+        "markdownlint",
+        "htmlhint",
         -- add more arguments for adding more null-ls sources
       })
     end,

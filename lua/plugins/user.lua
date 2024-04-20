@@ -3,19 +3,52 @@
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
 
----@type LazySpec
 return {
 
-  -- == Examples of Adding Plugins ==
+  -- == Adding Plugins ==
 
-{
+  {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
-},
+  },
 
-  -- == Examples of Overriding Plugins ==
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    dependencies = {
+      { "tpope/vim-dadbod", lazy = true },
+      { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql", "sqlite" }, lazy = true },
+    },
+    cmd = {
+      "DBUI",
+      "DBUIToggle",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
+    },
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
+  },
+
+  -- {
+  --   "kndndrj/nvim-dbee",
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  --   build = function()
+  --     -- Install tries to automatically detect the install method.
+  --     -- if it fails, try calling it with one of these parameters:
+  --     --    "curl", "wget", "bitsadmin", "go"
+  --     require("dbee").install()
+  --   end,
+  --   config = function()
+  --     require("dbee").setup(--[[optional config]])
+  --   end,
+  -- },
+
+  -- == Overriding Plugins ==
 
   -- customize alpha options
   {
@@ -23,19 +56,19 @@ return {
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-      '    ███████╗███████╗ ██████╗',
-      '    ██╔════╝██╔════╝██╔════╝',
-      '    ███████╗███████╗██║  ███╗',
-      '    ╚════██║╚════██║██║   ██║',
-      '    ███████║███████║╚██████╔╝',
-      '    ╚══════╝╚══════╝ ╚═════╝',
-      ' ',
-      '       ██╗██████╗ ███████╗',
-      '       ██║██╔══██╗██╔════╝',
-      '       ██║██║  ██║█████╗',  
-      '       ██║██║  ██║██╔══╝',  
-      '       ██║██████╔╝███████╗',
-      '       ╚═╝╚═════╝ ╚══════╝'
+        "    ███████╗███████╗ ██████╗",
+        "    ██╔════╝██╔════╝██╔════╝",
+        "    ███████╗███████╗██║  ███╗",
+        "    ╚════██║╚════██║██║   ██║",
+        "    ███████║███████║╚██████╔╝",
+        "    ╚══════╝╚══════╝ ╚═════╝",
+        " ",
+        "       ██╗██████╗ ███████╗",
+        "       ██║██╔══██╗██╔════╝",
+        "       ██║██║  ██║█████╗",
+        "       ██║██║  ██║██╔══╝",
+        "       ██║██████╔╝███████╗",
+        "       ╚═╝╚═════╝ ╚══════╝",
       }
       return opts
     end,
