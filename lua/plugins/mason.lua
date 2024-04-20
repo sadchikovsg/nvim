@@ -13,6 +13,10 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "lua_ls",
         "cssls",
+        "html",
+        "bashls",
+        "jsonls",
+        "yamlls",
         "pyright",
         "marksman",
         "sqlls",
@@ -30,12 +34,14 @@ return {
         "prettier",
         "stylua",
         "flake8",
+        "blue",
         "pyproject-flake8",
         "djlint",
         "isort",
         "pydocstyle",
         "markdownlint",
         "htmlhint",
+        "sql-formatter",
         -- add more arguments for adding more null-ls sources
       })
     end,
