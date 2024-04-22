@@ -38,6 +38,8 @@ return {
         "pyproject-flake8",
         "djlint",
         "isort",
+        "jq",
+        "jsonlint",
         "pydocstyle",
         "markdownlint",
         "htmlhint",
